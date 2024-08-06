@@ -29,7 +29,7 @@
 <body>
 	<h3>1. request 내장객체</h3>
 	<h4>GET 요청 방식</h4>
-	<form action="./proc/result1.jsp" method="get">
+	<form action="./proc/result1.jsp" method="Post">
 		<input type="text" name = "uid"><br>
 		<input type="text" name = "name"><br>
 		<input type="number" name = "age"><br>
@@ -54,5 +54,67 @@
 		요청경로 : <%= request.getRequestURI() %><br>
 		IP주소 : <%= request.getRemoteAddr() %><br>
 	</p>
+	
+	<h4>확인문제</h4>
+	<form action="./proc/result3.jsp" method="Get">
+		<table border="1">
+		<tr>
+		<td>아이디</td>
+		<td><input type="text" name="uid" placeholder="아이디 입력"/></td>
+		</tr>
+		
+		<tr>
+		<td>비밀번호</td>
+		<td><input type="text" name="pass" placeholder="비밀번호 입력"/></td>
+		</tr>
+		
+		<tr>
+		<td>이름</td>
+		<td><input type="text" name="name" placeholder="이름 입력"/></td>
+		</tr>
+		
+		<tr>
+		<td>생년월일</td>
+		<td><input type="date" name="birth" placeholder="생년월일 선택"/></td>
+		</tr>
+		
+		<tr>
+		<td>성별</td>
+		<td>
+		<label><input type="radio" name="gender" value="남자"/>남</label>>
+		<label><input type="radio" name="gender" value="여자"/>여</label>>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>취미</td>
+		<td>
+		<label><input type="checkbox" name="hobby" value="등산"/>등산</label>>
+		<label><input type="checkbox" name="hobby" value="독서"/>독서</label>>
+		<label><input type="checkbox" name="hobby" value="영화"/>영화</label>>
+		<label><input type="checkbox" name="hobby" value="운동"/>운동</label>>
+		<label><input type="checkbox" name="hobby" value="음악"/>음악</label>>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>주소</td>
+		<td>
+		<select name ="addr">
+			<option>서울</option>
+			<option>대전</option>
+			<option>대구</option>
+			<option>부산</option>
+			<option>광주</option>
+		</select>
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2" align="right">
+			<input type="submit" value="전송하기"/>
+		</td>
+		</tr>
+		</table>
+	</form>
 </body>
 </html>

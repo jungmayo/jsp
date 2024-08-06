@@ -9,4 +9,27 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  <context-param>
+  	<description>전역 param1</description>
+  	<param-name>param1</param-name>
+  	<param-value>1</param-value>
+  </context-param>
+
+
+  <context-param>
+  	<description>전역 param2</description>
+  	<param-name>param2</param-name>
+  	<param-value>2</param-value>
+  </context-param>
+
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.jsp</location>
+	</error-page>
 </web-app>

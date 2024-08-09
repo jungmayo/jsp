@@ -44,6 +44,25 @@ try{
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+
+	<script>
+		window.onload = function(){
+			const del = document.querySelectorAll('.del');
+			
+			//리스트에 삭제링크가 여러개이기 때문에 문서객체 리스트를 순회하면서 이벤트 처리
+			//고전 문서객체 선택함수(getElement~ )는 forEach지원을 안함
+			del.forEach(function(item){
+				item.onclick = function(e){
+					const result = confirm('정말 삭제 하시겠습니까?');
+					
+					if(!result){
+						e.preventDefault(); // 삭제취소
+					}
+				}
+			});
+		}
+	</script>
 </head>
 <body>
 <h3>user3</h3>

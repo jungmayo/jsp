@@ -14,19 +14,19 @@
 	<h3>2.DBCP TEST</h3>
 	
 	<h4>shop</h4>
-	<a href="/ch06/shop/customer/list.jsp">shop-Customer</a><br>
+	<a href="/ch06/shop/customer/list.jsp">shop-Customer</a>
 	<a href="/ch06/shop/product/list.jsp">shop-product</a><br>
 	
 	<h4>bank</h4>
-	<a href="/ch06/bank/customer/list.jsp">bank-Customer</a><br>
-	<a href="/ch06/bank/account/list.jsp">bank-account</a>
+	<a href="/ch06/bank/customer/list.jsp">bank-Customer</a>
+	<a href="/ch06/bank/account/list.jsp">bank-account</a><br>
 	
 	<h4>college</h4>
-	<a href="/ch06/college/student/list.jsp">college-student</a><br>
-	<a href="/ch06/college/lecture/list.jsp">college-lecture</a>
+	<a href="/ch06/college/student/list.jsp">college-student</a>
+	<a href="/ch06/college/lecture/list.jsp">college-lecture</a><br>
 	
 	<h4>theater</h4>
-	<a href="/ch06/theater/movies/list.jsp">theater-movies</a><br>
-	<a href="/ch06/theater/customer/list.jsp">theater-customer</a>
+	<a href="/ch06/theater/movies/list.jsp">theater-movies</a>
+	<a href="/ch06/theater/customer/list.jsp">theater-customer</a><br>
 </body>
 </html>

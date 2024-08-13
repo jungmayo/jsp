@@ -12,6 +12,8 @@
 <%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+
+	
 	//파일번호 수신
 	String no = request.getParameter("no");
 
@@ -29,7 +31,7 @@
 	ResultSet rs = stmt.executeQuery("select * from `filetest` where `no`=" +no);
 	
 	if(rs.next()){
-		vo = new FileVO();
+		vo = new FileVO(); // 아래에 oname,sname사용될 예정
 		vo.setNo(rs.getInt(1));
 		vo.setUid(rs.getString(2));
 		vo.setName(rs.getString(3));
@@ -49,23 +51,23 @@
 }
 	
 	//response 헤더정보 수정
-	response.setContentType("application/octet-stream");
-	response.setHeader("Content-Disposition", "attachment; filename="+URLEncoder.encode(vo.getOname(), "utf-8"));
-	response.setHeader("Content-Transfer-Encoding", "binary");
-	response.setHeader("Pragma", "no-cache");
-	response.setHeader("Cache-Control", "private");
+	response.setContentType("application/octet-stream"); //파일다운로드에 사용
+	response.setHeader("Content-Disposition", "attachment; filename="+URLEncoder.encode(vo.getOname(), "utf-8")); //응답헤더에 파일 첨부 정보를 설정 
+	response.setHeader("Content-Transfer-Encoding", "binary"); //데이터가 바이너리 형식으로 전송
+	response.setHeader("Pragma", "no-cache"); //브라우저 캐싱을 방지하기 위해 캐시를 사용하지 않도록 함
+	response.setHeader("Cache-Control", "private"); // 응답이 캐시되지 않도록 설정
 
 	//파일 내용 스트림 처리
-	String path = application.getRealPath("/uploads");
-	File file = new File(path + File.separator + vo.getSname());
+	String path = application.getRealPath("/uploads"); //해당 폴더 경로를 얻음
+	File file = new File(path + File.separator + vo.getSname()); //경로 + / + 파일명 
 	
-	BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
-	BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
+	BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file)); //파일을 읽기위한 생성
+	BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream()); //응답의 출력을 위한 생성
 	
 	while(true){
 		int data = bis.read();
 		if(data == -1){
-			break;
+			break; //파일의 데이터를 한 바이트씩 읽어와서 클라이언트로 전송하되 읽은 바이트가 -1이면 파일의 끝을 의미함
 		}
 		bos.write(data);
 	}

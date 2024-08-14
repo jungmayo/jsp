@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>ajax::user1</title>
 <script>
+
 	window.onload = function(){
 		const btnSubmit = document.getElementsByName('submit')[0];
 		
@@ -33,10 +34,10 @@
 			fetch('./registerProc.jsp', {
 				method: 'POST',
 				headers : {'Content-Type' : 'application/json'}, //클라이언트에서 서버로 가는 데이터
-				body : JSON.stringify(jsonData)
+				body : JSON.stringify(jsonData) //반드시 JSON객체를 문자열로 변환
 			})
 			.then(response => response.json())
-			.then(data => {   //서버에서 결과 데이터 수신 (서버에서 보낸 데이터)
+			.then(data => {   //서버에서 결과 데이터 수신 (서버에서 보낸 데이터) proc의 result데이터가 여기로 들어옴
 				console.log(jsonData);
 				if(data.result > 0){
 					alert('등록성공');
@@ -55,7 +56,7 @@
 </script>
 </head>
 <body>
-	<h3>user1 등록</h3>
+	<h3>ajax user1 등록</h3>
 	<form action="#" method="post">
 		<table border="1">
 			<tr>

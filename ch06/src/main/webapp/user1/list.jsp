@@ -33,7 +33,7 @@ String pass = "1234";
 		vo.setUid(rs.getString(1));
 		vo.setName(rs.getString(2));
 		vo.setHp(rs.getString(3));
-		vo.setAge(rs.getInt(4));
+		vo.setAge(rs.getString(4));
 		vo.setAdr(rs.getString(5));
 		
 		users.add(vo);

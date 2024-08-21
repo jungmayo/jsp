@@ -34,7 +34,7 @@ public class WriteController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/article/write.jsp");
-			dispatcher.forward(req, resp);		
+			dispatcher.forward(req, resp);		 //list에서 글쓰기 버튼을 눌렀을때 호출되고 wirte.jsp를 표시함
 		}
 	
 	@Override
@@ -48,20 +48,22 @@ public class WriteController extends HttpServlet {
 		
 		logger.debug(writer);
 		
+		//파일 업로드
+		List<FileDTO> files = fileservice.fileUpload(req);
 		
-		//글 등록
+		
 		ArticleDTO dto = new ArticleDTO();
 		dto.setTitle(title);
 		dto.setContent(content);
 		dto.setWirter(writer);
 		dto.setRegip(regip);
+		dto.setFile(files.size()); //갯수는 fileupload에서 결정되므로 순서를 위로 올림
 		
 		logger.debug(regip);
 		//글 등록
 		int no = articleservice.insertArticle(dto);
 		
-		//파일 업로드
-		List<FileDTO> files = fileservice.fileUpload(req);
+		
 		
 		for(FileDTO filedto : files) {
 			filedto.setAno(no);

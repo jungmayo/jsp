@@ -29,7 +29,7 @@ public class SQL {
 											//+"`cate`=?,"
 											+"`title`=?,"
 											+"`content`=?,"
-											//+"`file`=?,"
+											+"`file`=?,"
 											+"`writer`=?,"
 											+"`regip`=?,"
 											+"`rdate`=NOW()";

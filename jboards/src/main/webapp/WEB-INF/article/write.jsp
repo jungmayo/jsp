@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- ?writer=${sessUser.uid} 를 파라미터로 보내거나 input hidden으로 보내기 -->
+<!-- enctype="multipart/form-data는 파일업로드를 포함한 폼 전송을 위해 사용하는 것 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
             <section class="write">
                 <h3>글쓰기</h3>
                 <article>
-                    <form action="/jboards/article/write.do" method="POST" enctype="multipart/form-data">
+                    <form action="/jboards/article/write.do" method="POST" enctype="multipart/form-data"> 
                     		<input type="hidden" name="writer" value="${sessionScope.sessUser.uid}">
                         <table>
                             <tr>

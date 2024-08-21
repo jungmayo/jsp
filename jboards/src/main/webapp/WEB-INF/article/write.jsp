@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- ?writer=${sessUser.uid} 를 파라미터로 보내거나 input hidden으로 보내기 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,8 @@
             <section class="write">
                 <h3>글쓰기</h3>
                 <article>
-                    <form action="#">
+                    <form action="/jboards/article/write.do" method="POST" enctype="multipart/form-data">
+                    		<input type="hidden" name="writer" value="${sessionScope.sessUser.uid}">
                         <table>
                             <tr>
                                 <td>제목</td>
@@ -28,7 +30,13 @@
                             </tr>
                             <tr>
                                 <td>첨부</td>
-                                <td><input type="file" name="file"/></td>
+                                <td>
+                                <p style="margin-bottom: 6px">최대 2개 파일 첨부 가능, 각 파일당 최대 10MB 업로드</p>
+                                <input type="file" name="file1"/>
+                                <input type="file" name="file2"/>
+                                </td>
+                    
+                                
                             </tr>
                         </table>
                         <div>

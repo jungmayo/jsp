@@ -1,5 +1,7 @@
 package dto;
 
+import java.util.List;
+
 public class ArticleDTO {
 	private int no;
 	private String cate;
@@ -11,6 +13,38 @@ public class ArticleDTO {
 	private String wirter;
 	private String regip;
 	private String rdate;
+	
+	//추가필드(조인해서 새롭게 생성)
+	private String nick;
+	
+	private int number;
+	
+	
+	//추가필드 (파일+아티클)
+	private List<FileDTO> files;
+	
+	
+	
+	
+	
+	public List<FileDTO> getFiles() {
+		return files;
+	}
+	public void setFiles(List<FileDTO> files) {
+		this.files = files;
+	}
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -70,6 +104,9 @@ public class ArticleDTO {
 	}
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+	public void setRdateSubString(String rdate) {
+		this.rdate = rdate.substring(0,10);
 	}
 	@Override
 	public String toString() {

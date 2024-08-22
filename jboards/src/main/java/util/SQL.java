@@ -33,11 +33,31 @@ public class SQL {
 											+"`writer`=?,"
 											+"`regip`=?,"
 											+"`rdate`=NOW()";
+	public static final String UPDATE_ARTICLE = "update `article` set `hit` = `hit` + 1 where `no`=?";
+	
+	
+	public static final String SELECT_ARTICLES = "select a.*, b.nick, "
+											+ "ROW_NUMBER () OVER ( ORDER BY `no` ASC) "
+											+ "from `article` AS a "
+											+ "JOIN `user` AS b on a.writer = b.uid "
+											+ "ORDER BY `no` DESC "
+											+ "LIMIT ?, 10";
+											
+	
 	public static final String INSERT_FILE = "insert into file set "
 											+"`ano`=?,"
 											+"`oName`=?,"
 											+"`sName`=?,"
 											+"`rdate`=NOW()";
 	public static final String SELET_MAX_NO = "select MAX(`no`) from `article`";
-			
+	
+	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `article`";
+	
+	public static final String SELECT_ARTICLE = "SELECT * FROM `article` As a "
+												+ "left Join `file` as B on a.`no` = b.ano "
+												+ "where `no`=?";
+	
+	
+	public static final String SELECT_FILE = "select * from `file` where `fno`=?";
+	public static final String UPDATE_FILE_DOWNLOAD_COUNT = "update file set `download` = `download` + 1 where `fno`=?";
 }

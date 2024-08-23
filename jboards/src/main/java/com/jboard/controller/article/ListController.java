@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import service.ArticleService;
 
 @WebServlet("/article/list.do")
@@ -48,6 +49,9 @@ public class ListController extends HttpServlet {
 			req.setAttribute("lastPageNum", lastPageNum);
 			req.setAttribute("pageGroup", pageGroup);
 			req.setAttribute("currentPage", currentPage);
+			
+			//HttpSession session = req.getSession();
+			//session.setAttribute("sessPg", pg);
 			
 			//포워드
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/article/list.jsp");

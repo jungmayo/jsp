@@ -10,7 +10,7 @@ public class ArticleDTO {
 	private int comment;
 	private int file;
 	private int hit;
-	private String wirter;
+	private String writer;
 	private String regip;
 	private String rdate;
 	
@@ -87,11 +87,11 @@ public class ArticleDTO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public String getWirter() {
-		return wirter;
+	public String getWriter() {
+		return writer;
 	}
-	public void setWirter(String wirter) {
-		this.wirter = wirter;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public String getRegip() {
 		return regip;
@@ -111,7 +111,7 @@ public class ArticleDTO {
 	@Override
 	public String toString() {
 		return "ArticleDTO [no=" + no + ", cate=" + cate + ", title=" + title + ", content=" + content + ", comment="
-				+ comment + ", file=" + file + ", hit=" + hit + ", wirter=" + wirter + ", regip=" + regip + ", rdate="
+				+ comment + ", file=" + file + ", hit=" + hit + ", writer=" + writer + ", regip=" + regip + ", rdate="
 				+ rdate + "]";
 	}
 	

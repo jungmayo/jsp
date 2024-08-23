@@ -55,7 +55,7 @@ public class WriteController extends HttpServlet {
 		ArticleDTO dto = new ArticleDTO();
 		dto.setTitle(title);
 		dto.setContent(content);
-		dto.setWirter(writer);
+		dto.setWriter(writer);
 		dto.setRegip(regip);
 		dto.setFile(files.size()); //갯수는 fileupload에서 결정되므로 순서를 위로 올림
 		

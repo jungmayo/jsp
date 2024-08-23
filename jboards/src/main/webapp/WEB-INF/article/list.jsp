@@ -26,7 +26,7 @@
                         <c:forEach var="article" items="${articles}">
                         <tr>
                             <td>${article.number}</td>
-                            <td><a href="/jboards/article/view.do?no=${article.no}">${article.title}</a>&nbsp;[${article.comment}]</td>
+                            <td><a href="/jboards/article/view.do?no=${article.no}&pg=${currentPage}">${article.title}</a>&nbsp;[${article.comment}]</td>
                             <td>${article.nick}</td>
                             <td>${article.rdate}</td>
                             <td>${article.hit}</td>

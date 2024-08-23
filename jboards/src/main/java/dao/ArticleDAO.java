@@ -33,7 +33,7 @@ public class ArticleDAO extends DBHelper{
 			psmt.setString(1, dto.getTitle());
 			psmt.setString(2, dto.getContent());
 			psmt.setInt(3, dto.getFile());
-			psmt.setString(4, dto.getWirter());
+			psmt.setString(4, dto.getWriter());
 			psmt.setString(5, dto.getRegip());
 			psmt.executeUpdate();
 			
@@ -79,7 +79,7 @@ public class ArticleDAO extends DBHelper{
 				dto.setComment(rs.getInt(5));
 				dto.setFile(rs.getInt(6));
 				dto.setHit(rs.getInt(7));
-				dto.setWirter(rs.getString(8));
+				dto.setWriter(rs.getString(8));
 				dto.setRegip(rs.getString(9));
 				dto.setRdate(rs.getString(10));
 				}
@@ -122,7 +122,7 @@ public class ArticleDAO extends DBHelper{
 				dto.setComment(rs.getInt(5));
 				dto.setFile(rs.getInt(6));
 				dto.setHit(rs.getInt(7));
-				dto.setWirter(rs.getString(8));
+				dto.setWriter(rs.getString(8));
 				dto.setRegip(rs.getString(9));
 				dto.setRdateSubString(rs.getString(10));
 				dto.setNick(rs.getString(11)); //select_articles에서 join해서 user의 nick값을 가져와서 list에 넣을예정
@@ -163,11 +163,14 @@ public class ArticleDAO extends DBHelper{
 	
 	
 	
-	public void updateArticle(String no) {
+	public void updateArticle(String no) {}
+	
+	public void deleteArticle(int no) {}
+	public void updateHitCount(String no) {
 		
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE);
+			psmt = conn.prepareStatement(SQL.UPDATE_HIT_COUNT);
 			psmt.setString(1, no);
 			psmt.executeUpdate();
 			
@@ -178,11 +181,6 @@ public class ArticleDAO extends DBHelper{
 			closeAll();
 		}
 	}
-	
-	
-	
-	public void deleteArticle(int no) {}
-	
 	
 
 }

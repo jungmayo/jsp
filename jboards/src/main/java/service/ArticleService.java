@@ -65,5 +65,8 @@ public enum ArticleService {
 	public void deleteArticle(int no) {
 		dao.deleteArticle(no);
 	}
+	public void updateHitCount(String no) {
+		dao.updateHitCount(no);
+	}
 
 }

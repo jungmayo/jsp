@@ -33,7 +33,7 @@ public class SQL {
 											+"`writer`=?,"
 											+"`regip`=?,"
 											+"`rdate`=NOW()";
-	public static final String UPDATE_ARTICLE = "update `article` set `hit` = `hit` + 1 where `no`=?";
+	public static final String UPDATE_HIT_COUNT = "update `article` set `hit` = `hit` + 1 where `no`=?";
 	
 	
 	public static final String SELECT_ARTICLES = "select a.*, b.nick, "
@@ -60,4 +60,26 @@ public class SQL {
 	
 	public static final String SELECT_FILE = "select * from `file` where `fno`=?";
 	public static final String UPDATE_FILE_DOWNLOAD_COUNT = "update file set `download` = `download` + 1 where `fno`=?";
+	
+	public static final String INSERT_COMMENT = "insert into `comment` set "
+												+ "`parent`=?,"
+												+ "`content`=?,"
+												+ "`writer`=?,"
+												+ "`regip`=?,"
+												+ "`rdate`=NOW()";
+	
+	public static final String SELECT_COMMENT = "SELECT a.*, b.nick FROM `comment` AS a "
+												+"JOIN `user` AS b ON a.writer = b.uid where `no` =?";
+	
+	public static final String SELECT_COMMENTS = "SELECT a.*, b.nick FROM `comment` AS a "
+												+"JOIN `user` AS b ON a.writer = b.uid "
+												+"where `parent`=? "
+												+ "order by no";
+	
+	public static final String UPDATE_COMMENT = "update `comment` set "
+												+"`content`=? "
+												+"where `no`=?";
+	
+	public static final String DELETE_COMMENT = "delete from `comment` where `no`=?";
+												
 }

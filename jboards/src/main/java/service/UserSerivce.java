@@ -33,7 +33,7 @@ public enum UserSerivce {
 		
 		
 		//이메일 기본정보
-		String title = "jbpards 인증번호 입니다.";
+		String title = "FarmStory 이메일 인증코드입니다.";
 		String content = "<h1>인증코드는 " +code+ "입니다.</h1>";
 		String sender = "wlgus5946@gmail.com";
 		String appPass = "dqys begj jhxb ffhs"; //Google 앱 비밀번호
@@ -49,8 +49,8 @@ public enum UserSerivce {
 		//gmail session 생성
 		Session gmailSession = Session.getInstance(props, new Authenticator(){
 			
-			@Override
-			protected javax.mail.PasswordAuthentication getPasswordAuthentication(){
+			@Override // sender, appPass 반환
+			protected javax.mail.PasswordAuthentication getPasswordAuthentication(){ //서버에 로그인시 사용자의 이메일 주소와 비밀번호를 제공하는 역할
 				return new PasswordAuthentication(sender, appPass);
 			}
 		});
@@ -58,7 +58,7 @@ public enum UserSerivce {
 		//메일발송
 		Message message = new MimeMessage(gmailSession);
 		try{
-			message.setFrom(new InternetAddress(sender, "보내는사람", "UTF-8"));
+			message.setFrom(new InternetAddress(sender, "FarmStory", "UTF-8"));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 			message.setSubject(title);
 			message.setContent(content, "text/html;charset=utf-8");
@@ -67,7 +67,7 @@ public enum UserSerivce {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return ""+code;
+		return ""+code; //string으로 받기 위해서
 	}
 	public void insertUser(UserDTO dto) {
 		dao.insertUser(dto);

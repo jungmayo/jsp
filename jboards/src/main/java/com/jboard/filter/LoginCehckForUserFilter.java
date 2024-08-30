@@ -33,7 +33,6 @@ public class LoginCehckForUserFilter implements Filter {
 		
 		//로그인을 하지않았으면
 		}else {
-			//로그인 상태이면 다음 필터로 이동(controller 요청)
 			arg2.doFilter(arg0, arg1);
 			
 		}

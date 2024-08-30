@@ -142,7 +142,7 @@ window.onload = function(){
 	
 	//5. 이메일 유효성 검사
 	
-	let preventdblClick = false; 
+	let preventdblClick = false; //클릭허용됨
 	
 	btnSendEmail.onclick = async function(){
 		const email = registerForm.email.value;
@@ -162,7 +162,7 @@ window.onload = function(){
 		
 		
 		try{
-			preventdblClick = true; //여기서 true로 만들어주기
+			preventdblClick = true; //여기서 true로 만들어주기 클릭방지
 			console.log('here2');
 			
 			
@@ -182,7 +182,6 @@ window.onload = function(){
 		}catch(e){
 			console.log(e);
 		}
-		
 	};
 	
 	//인증코드 6자리 

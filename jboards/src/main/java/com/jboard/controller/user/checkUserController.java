@@ -47,7 +47,7 @@ public class checkUserController extends HttpServlet{
 		}
 		
 		
-		//이메일 조회하기
+		//정보들 조회하기
 		int result = service.selectCountUser(type,value);
 		
 		
@@ -80,7 +80,7 @@ public class checkUserController extends HttpServlet{
 		BufferedReader reader = req.getReader();
 		StringBuilder requestBody = new StringBuilder();
 		
-		String line;
+		String line; //bufferdReader가 한줄씩 읽어온 데이터를 저장하는데 사용됨
 		while((line = reader.readLine()) != null){
 			requestBody.append(line);
 		}
@@ -88,7 +88,7 @@ public class checkUserController extends HttpServlet{
 		
 		//JSON 파싱
 		Gson gson = new Gson();
-		Properties prop = gson.fromJson(requestBody.toString(), Properties.class);
+		Properties prop = gson.fromJson(requestBody.toString(), Properties.class); //JSON문자열을 프로퍼티 객체로 변환
 		String code = prop.getProperty("code"); //입력한 인증코드
 		logger.debug(code);
 		

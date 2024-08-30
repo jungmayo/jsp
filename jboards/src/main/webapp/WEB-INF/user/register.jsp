@@ -105,7 +105,7 @@ function postcode() {
                                	<span class="resultEmail"></span>
                                 <div class="auth">
                                     <input type="text" name="auth" placeholder="인증번호 입력"/>
-                                    <button type="button" id="btnAuthEmail"><img src="../images/chk_confirm.gif" alt="확인"/></button>
+                                    <button type="button" id=""><img src="../images/chk_confirm.gif" alt="확인"/></button>
                                 </div>
                             </td>
                         </tr>
@@ -134,7 +134,7 @@ function postcode() {
                     </table>
                     <div>
                         <a href="/jboards/user/login.do" class="btnCancel">취소</a>
-                        <input type="submit"   class="btnSubmit" value="회원가입"/>
+                        <input type="submit" class="btnSubmit" value="회원가입"/>
                     </div>    
                 </form>
             </section>

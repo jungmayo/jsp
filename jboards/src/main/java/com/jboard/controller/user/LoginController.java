@@ -29,14 +29,8 @@ public class LoginController extends HttpServlet {
 		String success = req.getParameter("success"); //로그인 실패시 여기로 옴
 		req.setAttribute("success", success);
 		
-		//로그인 상태를 확인하기 위해서 session 조회가 필요함
-		
-		HttpSession session = req.getSession();
-		UserDTO sessUser = (UserDTO) session.getAttribute("sessUser");
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/user/login.jsp");
 		dispatcher.forward(req, resp);
-			
 		}
 		
 		
